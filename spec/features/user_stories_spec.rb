@@ -34,6 +34,19 @@ describe 'User Stories' do
 			expect(page).to have_content 'You chose Rock!'
 		end
 
+		scenario 'game chooses "rock"' do
+			click_button 'Rock'
+
+			message = find(:css, "#opponent").text
+
+
+			expect(possible_messages).to include message
+		end
+
+		def possible_messages
+			[:rock, :paper, :scissors].map { |shape| "Opponent chose #{shape.to_s.capitalize}!" }
+		end
+
 	end
 end
 # As a marketeer
