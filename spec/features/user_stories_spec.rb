@@ -22,6 +22,7 @@ describe 'User Stories' do
 	end
 
 	 feature 'playing a game' do
+		 PLAY_SEED = 221563
 		 scenario 'see the shape options' do
 			 expect(page).to have_button 'Rock'
 			 expect(page).to have_button 'Paper'
@@ -39,8 +40,15 @@ describe 'User Stories' do
 
 			message = find(:css, "#opponent").text
 
-
 			expect(possible_messages).to include message
+		end
+
+		#Game chooses a random action
+
+		scenario 'game chooses a random option' do
+			srand(PLAY_SEED)
+			click_button 'Rock'
+			expect(page).to have_content 'Opponent chose Scissors'
 		end
 
 		def possible_messages
