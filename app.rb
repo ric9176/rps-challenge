@@ -13,6 +13,8 @@ class Rps < Sinatra::Base
  	end
 
   get '/play' do
+    @turn = Turn.new(session)
+
     @name = session[:name]
     @shape = session[:shape]
     @opponent_shape = session[:opponent_shape]
