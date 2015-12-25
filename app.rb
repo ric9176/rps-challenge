@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative './lib/opponent'
 
 class RPS < Sinatra::Base
   enable :sessions
@@ -14,7 +15,7 @@ class RPS < Sinatra::Base
   get '/play' do
     @name = session[:name]
     @shape = session[:shape]
-    @opponent_shape = session[:opponent_shape]
+    @opponent_shape = Opponent.new.shape
     erb :play
   end
 
