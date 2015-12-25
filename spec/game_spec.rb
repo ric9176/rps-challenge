@@ -33,8 +33,8 @@ feature 'playing a game' do
   #I want the game to chosse an option
 
   scenario 'game chooses Rock' do
-    click_button 'Rock'
     srand(PLAY_SEED)
+    click_button 'Rock'
     expect(page).to have_content 'Opponent chose Scissors!'
   end
 
