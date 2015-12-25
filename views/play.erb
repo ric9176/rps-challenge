@@ -1,8 +1,14 @@
 Hello <%= @name %>
-You choose <%= @shape %>
+
+
 
 <form method="POST" action="/play">
   <input type="submit" name="shape" value="Rock" />
   <input type="submit" name="shape" value="Paper" />
   <input type="submit" name="shape" value="Scissors" />
 </form>
+
+You choose <%= @shape %>
+<div id="opponent">
+  Opponent chose <%= @opponent_shape.to_s.capitalize %>!
+</div>
